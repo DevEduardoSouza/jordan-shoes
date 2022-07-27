@@ -86,6 +86,7 @@ main .textMain p{
     color: #474747;
 }
 
+
 .conteinerTenis{
     margin: auto;
     max-width: 1340px;
@@ -93,8 +94,11 @@ main .textMain p{
     text-align: center;
 }
 
+
 .boxTenis{
-    width: 300px ;
+    /* width: 300px ; */
+    max-width: 300px;
+    width: 90%;
     height: 302px;
     background-color: #EBE9EA;
     display: inline-block;
@@ -103,6 +107,7 @@ main .textMain p{
     cursor: pointer;
 }
 .boxTenis img{
+    /* width: inherit; */
     position: absolute;
     top: 23%;
     left: 8%;
@@ -131,16 +136,23 @@ footer p{
     .conteudoText p, main .textMain p  {
         font-size: 14px;  
     }
-}
-@media(max-width:560px){
-   
     .conteudoText p {
-        font-size: 12px;  
         line-height: 20px;
         text-align: justify;
     }
 
     br{
         display: none;
+    }
+}
+@media(max-width:350px){
+   
+    .boxTenis img{
+         width: inherit;  
+    }
+    .boxTenis {
+        
+        height: 250px;
+       
     }
 }
