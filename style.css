@@ -12,13 +12,13 @@ html,body{
     background-color: white;
     overflow-x: hidden;
     position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 62.5%;
 }
-
 header{
     background-color: #181818;
     height: 60px;
     width: 100%;
-
 }
 header .conteudoHeader{
     text-align: center;
@@ -26,12 +26,13 @@ header .conteudoHeader{
 }
 header .conteudoHeader p{
     color: white;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 500;
+    visibility: hidden;
 }
 h1{
     text-align: center;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 600;
     padding: 6px 0px;
 }
@@ -57,11 +58,11 @@ h1{
 
 .conteudoText h2{
     padding: 20px 0px;
-    font-size: 32px;
+    font-size: 3.2rem;
     font-weight: 700;
 }
 .conteudoText p{
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     line-height: 35px;
 }
@@ -76,11 +77,11 @@ main .textMain{
     text-align: center;
 }
 main .textMain h2{
-    font-size: 32px;
+    font-size: 3.2rem;
     font-weight:600 ;
 }
 main .textMain p{
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight:500 ;
     padding: 15px 0px;
     color: #474747;
@@ -114,6 +115,7 @@ main .textMain p{
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
 }
+
 .boxTenis img:hover{
     -webkit-transform: scale(1.2);
      transform: scale(1.2);
@@ -127,9 +129,16 @@ footer p{
     color: white;
     text-align: center;
     padding: 20px 0px;
+    font-size: 1.6rem;
 }
 
+
+
 @media(max-width:560px){
+
+    html{
+        font-size: 54%;
+    }
     .conteudoText h2, main .textMain h2{
             font-size: 22px;  
     }
@@ -153,4 +162,5 @@ footer p{
     .boxTenis {
         height: 250px;
     }
+    
 }
