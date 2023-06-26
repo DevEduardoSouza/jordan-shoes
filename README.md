@@ -1,6 +1,6 @@
 # Landing Page de Sapatos Jordan
 ![Imagem do JordanShoes](imgs/ft_projeto.png)
-<a href="https://jordan-shoes.netlify.app">Link</a>
+<a href="https://jordan-shoes-projeto.netlify.app">Link</a>
 
 Este repositório contém uma landing page responsiva que exibe alguns sapatos Jordan. A página foi criada durante o meu aprendizado de front-end, utilizando HTML, CSS e um pouco de JavaScript.
 
