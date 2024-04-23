@@ -1,0 +1,109 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(233, 233, 233);
+}
+
+#containerCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+.card,
+.card-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  position: relative;
+  width: 250px;
+  height: 300px;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 1rem;
+
+  border-radius: 0.5rem;
+  background: #f1f5f8;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  padding: 1rem;
+}
+
+.card .card-img img {
+  cursor: pointer;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.card-img img:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.card .card-footer .card-price {
+  font-size: 1rem;
+}
+
+.card .card-title {
+  font-size: 1.5rem;
+}
+
+.card .btn {
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem;
+}
+
+.card .bi-plus {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.card .btn-plus {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #181818;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.btn-plus:hover {
+  background-color: #f1f5f8;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.card .card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card #icon-heart-card {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.card .bi-heart:hover {
+  color: red;
+}

@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-size: 62.5%;
+}
+header {
+  background-color: #181818;
+  height: 60px;
+  width: 100%;
+}
+header .conteudoHeader {
+  text-align: center;
+  padding: 20px 0px;
+}
+header .conteudoHeader p {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 500;
+  visibility: hidden;
+}
+h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  padding: 6px 0px;
+}
+.conteudoBackground {
+  background-image: url(../imgs/Mask\ Group.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 378px;
+  filter: brightness(50%);
+}
+.conteinerText {
+  max-width: 550px;
+  width: 75%;
+  position: absolute;
+  height: auto;
+  left: 10%;
+  top: 210px;
+  z-index: 1;
+  color: white;
+}
+
+.conteudoText h2 {
+  padding: 20px 0px;
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+.conteudoText p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 35px;
+}
+main {
+  max-width: 1440px;
+  width: 90%;
+  margin: auto;
+  height: auto;
+  padding: 50px 0px;
+}
+main .textMain {
+  text-align: center;
+}
+main .textMain h2 {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+main .textMain p {
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 15px 0px;
+  color: #474747;
+}
+
+.conteinerTenis {
+  margin: auto;
+  max-width: 1340px;
+  height: auto;
+  text-align: center;
+}
+
+.boxTenis {
+  /* width: 300px ; */
+  max-width: 300px;
+  width: 90%;
+  height: 302px;
+  background-color: #ebe9ea;
+  display: inline-block;
+  margin: 8px 15px;
+  position: relative;
+  cursor: pointer;
+}
+.boxTenis img {
+  /* width: inherit; */
+  position: absolute;
+  top: 23%;
+  left: 8%;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.boxTenis img:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+footer {
+  width: 100%;
+  height: 60px;
+  background-color: #181818;
+}
+footer p {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 560px) {
+  html {
+    font-size: 54%;
+  }
+  .conteudoText h2,
+  main .textMain h2 {
+    font-size: 22px;
+  }
+  .conteudoText p,
+  main .textMain p {
+    font-size: 14px;
+  }
+  .conteudoText p {
+    line-height: 20px;
+    text-align: justify;
+  }
+
+  br {
+    display: none;
+  }
+}
+@media (max-width: 350px) {
+  .boxTenis img {
+    width: inherit;
+  }
+  .boxTenis {
+    height: 250px;
+  }
+}
