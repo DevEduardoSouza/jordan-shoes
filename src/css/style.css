@@ -3,33 +3,57 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
+ul,
+li {
+  list-style: none;
+}
+
 html,
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 100vw;
-  height: 100vh;
   background-color: white;
-  overflow-x: hidden;
-  position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-size: 62.5%;
 }
+
+/* ======{Header}====== */
+
 header {
   background-color: #181818;
   height: 60px;
   width: 100%;
 }
-header .conteudoHeader {
-  text-align: center;
-  padding: 20px 0px;
+
+header nav {
+  max-width: 1250px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #ebe9ea;
 }
-header .conteudoHeader p {
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 500;
-  visibility: hidden;
+
+header nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
+
+header nav ul .brand {
+  font-weight: bolder;
+}
+
+header nav ul .icon-cart {
+  cursor: pointer;
+}
+
+/* ======{END Header}====== */
+
+
+
 h1 {
   text-align: center;
   font-size: 2.4rem;
