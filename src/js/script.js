@@ -41,4 +41,23 @@ const addCard = (item) => {
 
 
 
-// 
+// toogle cart side
+
+const btnCart = document.querySelector(".btn-cart");
+const arrowLeftCart = document.querySelector(".icon-arrow");
+
+const body = document.querySelector("body");
+
+arrowLeftCart.addEventListener("click", () => {
+  const cart = document.querySelector(".cart-side");
+
+  cart.classList.toggle("hide");
+  body.classList.toggle("overflow-hidden");
+});
+
+btnCart.addEventListener("click", () => {
+  const cart = document.querySelector(".cart-side");
+
+  cart.classList.toggle("hide");
+  body.classList.toggle("overflow-hidden");
+});
