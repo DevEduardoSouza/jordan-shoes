@@ -1,9 +1,8 @@
 #containerCard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 2rem;
   margin: auto;
-  padding: 1rem;
 }
 
 .card,
@@ -15,8 +14,8 @@
 
 .card {
   position: relative;
-  width: 250px;
-  height: 300px;
+  max-width: 300px;
+  height: 350px;
 
   font-family: "Poppins", sans-serif;
   font-weight: 800;
@@ -65,7 +64,7 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  background-color: #181818;
+  background-color: #ee7444;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   display: flex;
@@ -96,4 +95,10 @@
 
 .card .bi-heart:hover {
   color: red;
+}
+
+@media screen and (max-width: 561px){
+  .card  {
+      max-width: 100%;
+  }
 }

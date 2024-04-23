@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +16,6 @@ li {
 html,
 body {
   font-family: "Poppins", sans-serif;
-  width: 100vw;
   background-color: white;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -25,6 +26,7 @@ header {
   background-color: #181818;
   height: 60px;
   width: 100%;
+  padding: 0 2rem;
 }
 
 header nav {
@@ -52,133 +54,72 @@ header nav ul .icon-cart {
 
 /* ======{END Header}====== */
 
+/* ======{Main}====== */
 
-
-h1 {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 600;
-  padding: 6px 0px;
+main .container {
+  max-width: 1250px;
+  width: 90%;
+  margin: auto;
 }
-.conteudoBackground {
-  background-image: url(../imgs/Mask\ Group.svg);
+
+main .container .brand {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+main .bg-image {
+  background-image: url("https://wallpapercave.com/wp/wp6346244.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 378px;
-  filter: brightness(50%);
-}
-.conteinerText {
-  max-width: 550px;
-  width: 75%;
-  position: absolute;
-  height: auto;
-  left: 10%;
-  top: 210px;
-  z-index: 1;
-  color: white;
+  height: 450px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.conteudoText h2 {
-  padding: 20px 0px;
-  font-size: 3.2rem;
-  font-weight: 700;
+main .bg-image .content-img {
+  padding: 2rem;
+  display: flex;
+  height: 100%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #ebe9ea;
+
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 800;
+  font-style: normal;
 }
-.conteudoText p {
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 35px;
+
+main .content-img h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
 }
-main {
-  max-width: 1440px;
-  width: 90%;
-  margin: auto;
-  height: auto;
-  padding: 50px 0px;
-}
-main .textMain {
+
+/*  */
+#sc-products .texts {
   text-align: center;
-}
-main .textMain h2 {
-  font-size: 3.2rem;
-  font-weight: 600;
-}
-main .textMain p {
-  font-size: 1.8rem;
-  font-weight: 500;
-  padding: 15px 0px;
-  color: #474747;
+  margin: 5rem 0 2rem ;
 }
 
-.conteinerTenis {
-  margin: auto;
-  max-width: 1340px;
-  height: auto;
-  text-align: center;
+#sc-products .texts h2 {
+  font-size: 2rem;
 }
 
-.boxTenis {
-  /* width: 300px ; */
-  max-width: 300px;
-  width: 90%;
-  height: 302px;
-  background-color: #ebe9ea;
-  display: inline-block;
-  margin: 8px 15px;
-  position: relative;
-  cursor: pointer;
-}
-.boxTenis img {
-  /* width: inherit; */
-  position: absolute;
-  top: 23%;
-  left: 8%;
-  -webkit-transition: all 0.7s ease;
-  transition: all 0.7s ease;
+#sc-products .texts p {
+  font-size: 1.2rem;
 }
 
-.boxTenis img:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
+/*  */
 footer {
+  margin-top: 5rem;
   width: 100%;
-  height: 60px;
+  padding: 1rem;
   background-color: #181818;
 }
+
 footer p {
   color: white;
   text-align: center;
-  padding: 20px 0px;
   font-size: 1.6rem;
-}
-
-@media (max-width: 560px) {
-  html {
-    font-size: 54%;
-  }
-  .conteudoText h2,
-  main .textMain h2 {
-    font-size: 22px;
-  }
-  .conteudoText p,
-  main .textMain p {
-    font-size: 14px;
-  }
-  .conteudoText p {
-    line-height: 20px;
-    text-align: justify;
-  }
-
-  br {
-    display: none;
-  }
-}
-@media (max-width: 350px) {
-  .boxTenis img {
-    width: inherit;
-  }
-  .boxTenis {
-    height: 250px;
-  }
 }
