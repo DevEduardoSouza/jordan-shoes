@@ -13,11 +13,16 @@ li {
   list-style: none;
 }
 
+.hide{
+  display: none;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;
   background-color: white;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
 }
 
 /* ======{Header}====== */
@@ -55,6 +60,8 @@ header nav ul .icon-cart {
 /* ======{END Header}====== */
 
 /* ======{Main}====== */
+main {
+}
 
 main .container {
   max-width: 1250px;
@@ -99,7 +106,7 @@ main .content-img h2 {
 /*  */
 #sc-products .texts {
   text-align: center;
-  margin: 5rem 0 2rem ;
+  margin: 5rem 0 2rem;
 }
 
 #sc-products .texts h2 {
@@ -122,4 +129,77 @@ footer p {
   color: white;
   text-align: center;
   font-size: 1.6rem;
+}
+
+/*  */
+
+.cart-side {
+  background-color: #fff;
+  width: 400px;
+  height: 100vh;
+  padding: 1rem;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #ebe9ea;
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 0 0.5rem;
+  
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-item .cart-item-info h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.cart-item .cart-item-info p {
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.buttons {
+  align-self: flex-end;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttons .btn {
+  height: 25px;
+  width: 25px;
+  background-color: #ee7444;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
 }
