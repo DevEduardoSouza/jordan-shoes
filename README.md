@@ -2,8 +2,11 @@
 
 Este repositório contém uma landing page responsiva que exibe alguns sapatos Jordan. A página foi criada durante o meu aprendizado de front-end, utilizando HTML, CSS e um pouco de JavaScript.
 
-![Imagem do JordanShoes](imgs/ft_projeto.png)
-<a href="https://jordan-shoes-projeto.netlify.app">Link</a>
+<a href="https://j0rd4n.netlify.app/">Link para o site</a>
+
+![Imagem Completa](imgs/ft_projeto.png)
+
+
 
 
 ## Descrição
@@ -14,6 +17,7 @@ A landing page de sapatos Jordan é um projeto desenvolvido para praticar e apri
 
 - Exibição de modelos de sapatos Jordan
 - Design responsivo para diferentes dispositivos
+- Carrinho de compra
 
 
 ## Tecnologias Utilizadas
