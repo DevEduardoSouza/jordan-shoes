@@ -157,6 +157,23 @@ footer p {
 
 .btn-cart {
   cursor: pointer;
+  position: relative;
+}
+
+.cart-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #ee7444;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  padding: 0.2rem;
+  font-size: 0.5rem;
+  position: absolute;
+  top: -5px;
+  right: -9px;
 }
 
 .btn-cart:hover {

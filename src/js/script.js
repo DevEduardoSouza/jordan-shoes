@@ -13,6 +13,11 @@ const uniqueItemIds = [];
 
 const buttonAddCart = document.querySelectorAll(".btn-plus");
 
+const updateCountCart = () => {
+  const spanCountCart = document.querySelector(".cart-counter");
+  spanCountCart.innerHTML = uniqueItemIds.length;
+};
+
 buttonAddCart.forEach((btnAddCart) => {
   btnAddCart.addEventListener("click", () => {
     const itemClickedId = Number(
@@ -25,6 +30,7 @@ buttonAddCart.forEach((btnAddCart) => {
     if (!uniqueItemIds.find((id) => id == itemClicked.id)) {
       uniqueItemIds.push(itemClicked.id);
       addToCart(itemClicked.id);
+      updateCountCart();
     }
   });
 });
