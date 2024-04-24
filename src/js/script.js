@@ -41,11 +41,15 @@ const body = document.querySelector("body");
 const btnCart = document.querySelector(".btn-cart");
 const arrowLeftCart = document.querySelector(".icon-arrow");
 
-[btnCart, arrowLeftCart].forEach((button) => {
+const fade = document.querySelector(".fade");
+
+[btnCart, arrowLeftCart, fade].forEach((button) => {
   button.addEventListener("click", () => {
     const cart = document.querySelector(".cart-side");
     cart.classList.toggle("hide");
     body.classList.toggle("overflow-hidden");
+
+    fade.classList.toggle("hide");
   });
 });
 
