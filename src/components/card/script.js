@@ -1,10 +1,10 @@
 import { listaJordan } from "../../store/listaJordan.js";
+import { formatterCurrency } from "../../utils/utils.js";
 
 const crateCard = ({ image, title, price, id }) => {
   const card = document.createElement("div");
   card.classList.add("card");
   card.id = id;
-
   price = formatterCurrency(price);
 
   card.innerHTML = `
@@ -23,6 +23,7 @@ const crateCard = ({ image, title, price, id }) => {
 
         <span class="icon-heart" id="icon-heart-card"><i class="bi bi-heart"></i></span>
     `;
+
   return card;
 };
 
@@ -33,17 +34,4 @@ const addCard = (list) => {
   });
 };
 
-// Utils
-const formatterCurrency = (value) => {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(value);
-};
-
-
-
-function init() {
-  addCard(listaJordan);
-}
-init();
+addCard(listaJordan);

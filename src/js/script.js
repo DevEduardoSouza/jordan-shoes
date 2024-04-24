@@ -1,63 +1,72 @@
 import { listaJordan } from "../store/listaJordan.js";
+import { formatterCurrency, animationReveal } from "../utils/utils.js";
 
-window.sr = ScrollReveal({ reset: true });
+import { findItem, createCart } from "./crud.js";
 
-const animationReveal = (element, x, y, z, duration) => {
-  sr.reveal(element, {
-    rotate: { x: 0, y: 40, z: 0 },
-
-    duration: 2000,
-  });
-};
-
+/* =========={ Adicionando as Animações }==========*/
 animationReveal(".message-info");
 animationReveal(".content-img");
 animationReveal(".card");
 
-/**/
+/* =========={ Evitar duplicidades e adicionar itens ao carinho de compras }==========*/
+const uniqueItemIds = [];
 
-const shoppingCart = [];
+const buttonAddCart = document.querySelectorAll(".btn-plus");
 
-const btnsAddCart = document.querySelectorAll(".btn-plus");
-
-btnsAddCart.forEach((btnAddCart) => {
+buttonAddCart.forEach((btnAddCart) => {
   btnAddCart.addEventListener("click", () => {
-    const cartId = btnAddCart.parentNode.parentNode.getAttribute("id");
+    const itemClickedId = Number(
+      btnAddCart.parentNode.parentNode.getAttribute("id")
+    );
 
-    const item = listaJordan.find((cart) => cart.id == cartId);
+    const itemClicked = findItem(listaJordan, itemClickedId);
 
-    // verificar se o id do card já está no array
-    if (!shoppingCart.find((id) => id == item.id)) {
-      addCard(item);
-    }else{}
-
-    console.log(shoppingCart);
+    // Para evitar duplicidades.
+    if (!uniqueItemIds.find((id) => id == itemClicked.id)) {
+      uniqueItemIds.push(itemClicked.id);
+      addToCart(itemClicked.id);
+    }
   });
 });
 
-const addCard = (item) => {
-  shoppingCart.push(item.id);
-};
-
-
-
-// toogle cart side
-
+/* =========={ Toggle Cart Side }==========*/
+const body = document.querySelector("body");
 const btnCart = document.querySelector(".btn-cart");
 const arrowLeftCart = document.querySelector(".icon-arrow");
 
-const body = document.querySelector("body");
-
-arrowLeftCart.addEventListener("click", () => {
-  const cart = document.querySelector(".cart-side");
-
-  cart.classList.toggle("hide");
-  body.classList.toggle("overflow-hidden");
+[btnCart, arrowLeftCart].forEach((button) => {
+  button.addEventListener("click", () => {
+    const cart = document.querySelector(".cart-side");
+    cart.classList.toggle("hide");
+    body.classList.toggle("overflow-hidden");
+  });
 });
 
-btnCart.addEventListener("click", () => {
-  const cart = document.querySelector(".cart-side");
+/* =========={ Add Item to Cart Side  }==========*/
+const addToCart = (id) => {
+  const item = findItem(listaJordan, id);
+  const cartItem = createCart(item);
+  const cart = document.querySelector(".cart-side .cart-content");
 
-  cart.classList.toggle("hide");
-  body.classList.toggle("overflow-hidden");
-});
+  updateTotal();
+  cart.appendChild(cartItem);
+};
+
+/* =========={ Functions for total price manipulation }==========*/
+const getTotal = () => {
+  let total = 0;
+
+  uniqueItemIds.forEach((id) => {
+    const item = findItem(listaJordan, id);
+    total += item.price;
+  });
+
+  return total;
+};
+
+const updateTotal = () => {
+  const total = getTotal();
+  const spanTotal = document.querySelector(".cart-side #total");
+
+  spanTotal.innerHTML = formatterCurrency(total);
+};
