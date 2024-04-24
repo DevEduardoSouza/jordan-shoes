@@ -4,7 +4,7 @@ Este repositório contém uma landing page responsiva que exibe alguns sapatos J
 
 <a href="https://j0rd4n.netlify.app/">Link para o site</a>
 
-![Imagem Completa](imgs/ft_projeto_.png)
+![Imagem Completa](imgs/ft_projeto_[.png)
 
 
 
