@@ -48,3 +48,9 @@ export const createCart = ({ id, image, title, price }) => {
 
   return cartItem;
 };
+
+export const removeItem = (array, id) => {
+  const index = array.findIndex((element) => element.id === id);
+  array.splice(index, 1);
+
+};

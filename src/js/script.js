@@ -1,10 +1,10 @@
 import { listaJordan } from "../store/listaJordan.js";
 import { formatterCurrency, animationReveal } from "../utils/utils.js";
 
-import { findItem, createCart } from "./crud.js";
+import { findItem, createCart, removeItem } from "./crud.js";
 
 /* =========={ Adicionando as Animações }==========*/
-animationReveal(".message-info");
+animationReveal(".container .brand");
 animationReveal(".content-img");
 animationReveal(".card");
 
@@ -31,6 +31,7 @@ buttonAddCart.forEach((btnAddCart) => {
       uniqueItemIds.push(itemClicked.id);
       addToCart(itemClicked.id);
       updateCountCart();
+      initRemoveItem();
     }
   });
 });
@@ -47,6 +48,21 @@ const arrowLeftCart = document.querySelector(".icon-arrow");
     body.classList.toggle("overflow-hidden");
   });
 });
+
+/* =========={ function for launcher buttons remove }==========*/
+function initRemoveItem() {
+  const buttonRemoveItem = document.querySelectorAll(".btn-delete");
+
+  buttonRemoveItem.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.parentNode.getAttribute("id");
+
+      btn.parentNode.remove();
+      removeItem(uniqueItemIds, id);
+      updateCountCart();
+    });
+  });
+}
 
 /* =========={ Add Item to Cart Side  }==========*/
 const addToCart = (id) => {

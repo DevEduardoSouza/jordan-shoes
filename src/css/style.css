@@ -41,6 +41,10 @@ header {
   height: 60px;
   width: 100%;
   padding: 0 2rem;
+
+  position: fixed;
+  top: 0;
+  z-index: 101;
 }
 
 header nav {
@@ -70,6 +74,7 @@ header nav ul .icon-cart {
 
 /* ======{Main}====== */
 main {
+  margin-top: 65px;
 }
 
 main .container {
@@ -148,11 +153,12 @@ footer p {
   height: 100vh;
   padding: 1rem;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
 
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 102;
 }
 
 .btn-cart {
