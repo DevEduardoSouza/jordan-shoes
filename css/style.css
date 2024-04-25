@@ -90,7 +90,7 @@ main .container .brand {
 }
 
 main .bg-image {
-  background-image: url("https://wallpapercave.com/wp/wp6346244.jpg");
+  background-image: url("../imgs/bg-01-jordan.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -316,4 +316,21 @@ footer p {
   left: 0;
   z-index: 102;
   cursor: pointer;
+}
+
+@media screen and (max-width: 890px) {
+  .message-info {
+    display: none;
+  }
+  main .bg-image {
+    background-image: url(../imgs/bg-01-jordan.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom;
+    max-height: 450px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  .cart-side{
+    width: 350px;
+  }
 }
