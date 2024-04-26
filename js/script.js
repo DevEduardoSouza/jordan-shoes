@@ -1,21 +1,20 @@
 import { listaJordan } from "../store/listaJordan.js";
 import { formatterCurrency, animationReveal } from "../utils/utils.js";
-
 import { findItem, createCart, removeItem } from "./crud.js";
+
+const listCart = [];
 
 /* =========={ Adicionando as Animações }==========*/
 animationReveal(".container .brand");
 animationReveal(".content-img");
 animationReveal(".card");
 
-/* =========={ Evitar duplicidades e adicionar itens ao carinho de compras }==========*/
-const uniqueItemIds = [];
-
+/* =========={ Evitar duplicidades e adicionar itens ao carrinho de compras }==========*/
 const buttonAddCart = document.querySelectorAll(".btn-plus");
 
 const updateCountCart = () => {
   const spanCountCart = document.querySelector(".cart-counter");
-  spanCountCart.innerHTML = uniqueItemIds.length;
+  spanCountCart.innerHTML = listCart.length;
 };
 
 buttonAddCart.forEach((btnAddCart) => {
@@ -26,11 +25,15 @@ buttonAddCart.forEach((btnAddCart) => {
 
     const itemClicked = findItem(listaJordan, itemClickedId);
 
-    // Para evitar duplicidades.
-    if (!uniqueItemIds.find((id) => id == itemClicked.id)) {
-      uniqueItemIds.push(itemClicked.id);
-      addToCart(itemClicked.id);
+    if (!listCart.find((cart) => cart.id === itemClicked.id)) {
+      itemClicked.quantity = 1;
+      itemClicked.priceTotal = itemClicked.price;
+
+      listCart.push(itemClicked);
+
+      addToCart(itemClicked);
       updateCountCart();
+      updateTotal();
       initRemoveItem();
     }
   });
@@ -40,7 +43,6 @@ buttonAddCart.forEach((btnAddCart) => {
 const body = document.querySelector("body");
 const btnCart = document.querySelector(".btn-cart");
 const arrowLeftCart = document.querySelector(".icon-arrow");
-
 const fade = document.querySelector(".fade");
 
 [btnCart, arrowLeftCart, fade].forEach((button) => {
@@ -48,51 +50,42 @@ const fade = document.querySelector(".fade");
     const cart = document.querySelector(".cart-side");
     cart.classList.toggle("hide");
     body.classList.toggle("overflow-hidden");
-
     fade.classList.toggle("hide");
   });
 });
 
-/* =========={ function for launcher buttons remove }==========*/
-function initRemoveItem() {
-  const buttonRemoveItem = document.querySelectorAll(".btn-delete");
-
-  buttonRemoveItem.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.parentNode.getAttribute("id");
-
-      btn.parentNode.remove();
-      removeItem(uniqueItemIds, id);
-      updateCountCart();
-    });
-  });
-}
-
-/* =========={ Add Item to Cart Side  }==========*/
-const addToCart = (id) => {
-  const item = findItem(listaJordan, id);
-  const cartItem = createCart(item);
+/* =========={ Functions for total price manipulation }==========*/
+const addToCart = (item) => {
+  const cartItem = createCart(item, listCart, updateTotal);
   const cart = document.querySelector(".cart-side .cart-content");
-
-  updateTotal();
   cart.appendChild(cartItem);
 };
 
-/* =========={ Functions for total price manipulation }==========*/
 const getTotal = () => {
   let total = 0;
-
-  uniqueItemIds.forEach((id) => {
-    const item = findItem(listaJordan, id);
-    total += item.price;
+  listCart.forEach((item) => {
+    total += item.quantity * item.price;
   });
-
   return total;
 };
 
 const updateTotal = () => {
   const total = getTotal();
   const spanTotal = document.querySelector(".cart-side #total");
-
   spanTotal.innerHTML = formatterCurrency(total);
 };
+
+/* =========={ Eventos de clique nos botões de remoção }==========*/
+function initRemoveItem() {
+  const buttonRemoveItem = document.querySelectorAll(".btn-delete");
+
+  buttonRemoveItem.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.parentNode.getAttribute("id");
+      btn.parentNode.remove();
+      removeItem(listCart, id);
+      updateCountCart();
+      updateTotal();
+    });
+  });
+}

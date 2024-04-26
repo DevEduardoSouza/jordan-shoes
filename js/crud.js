@@ -19,7 +19,7 @@ export const findItem = (array, id) => {
  * @param {number} item.price O preço do item.
  * @returns {HTMLElement} O elemento HTML que representa o item no carrinho.
  */
-export const createCart = ({ id, image, title, price }) => {
+export const createCart = ({ id, image, title, price }, listCart,updateTotal) => {
   const cartItem = document.createElement("div");
   cartItem.classList.add("cart-item");
   cartItem.id = id;
@@ -38,19 +38,49 @@ export const createCart = ({ id, image, title, price }) => {
           <i class="bi bi-trash3"></i>
         </div>
         <div class="buttons">
-          <button class="btn btn-plus"><i class="bi bi-dash"></i></button>
-          <span class="value">1</span>
-          <button class="btn btn-plus"><i class="bi bi-plus"></i></button>
+          <button class="btn btn-minus btn-minus-cart"><i class="bi bi-dash"></i></button>
+          <span class="value quantity">1</span>
+          <button class="btn btn-plus btn-plus-cart" ><i class="bi bi-plus"></i></button>
         </div>
     `;
 
   cartItem.innerHTML = content;
 
+  // Adicionar evento de clique ao botão de adição
+  const btnPlus = cartItem.querySelector(".btn-plus-cart");
+  btnPlus.addEventListener("click", () => {
+    const quantity = cartItem.querySelector(".quantity");
+    quantity.innerHTML = Number(quantity.innerHTML) + 1;
+    const itemFound = listCart.find((item) => item.id === id);
+    if (itemFound) {
+      itemFound.quantity = Number(quantity.textContent);
+      updateTotal();
+    }
+  });
+
+  // Adicionar evento de clique ao botão de subtração
+  const btnMinus = cartItem.querySelector(".btn-minus-cart");
+  btnMinus.addEventListener("click", () => {
+    const quantity = cartItem.querySelector(".quantity");
+    if (Number(quantity.textContent) > 1) {
+      quantity.innerHTML = Number(quantity.innerHTML) - 1;
+      const itemFound = listCart.find((item) => item.id === id);
+      if (itemFound) {
+        itemFound.quantity = Number(quantity.textContent);
+        updateTotal();
+      }
+    }
+  });
+
   return cartItem;
 };
 
-export const removeItem = (array, id) => {
-  const index = array.findIndex((element) => element.id === id);
-  array.splice(index, 1);
 
+export const removeItem = (listCart, id) => {
+  id = Number(id);
+  const index = listCart.findIndex((element) => element.id === id);
+  if (index !== -1) {
+    listCart.splice(index, 1);
+  }
 };
+
