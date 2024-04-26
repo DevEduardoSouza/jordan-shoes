@@ -203,6 +203,19 @@ footer p {
   flex-direction: column;
   gap: 1.5rem;
   margin: 2rem 0;
+  position: relative;
+  height: 80vh; /* Defina a altura como 100% da altura da janela de visualização */
+  overflow-y: auto;
+  padding-bottom: 5rem;
+}
+
+.cart-side .cart-content::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Cor de fundo transparente */
+}
+
+.cart-side .cart-content {
+  scrollbar-width: none; /* Remover a barra de rolagem */
 }
 
 .cart-side .cart-content .cart-item {
@@ -330,7 +343,7 @@ footer p {
     max-height: 450px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  .cart-side{
+  .cart-side {
     width: 350px;
   }
 }
